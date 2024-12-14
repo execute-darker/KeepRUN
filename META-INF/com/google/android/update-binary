@@ -1,0 +1,34 @@
+#!/bin/sh
+
+
+
+#           <Keep the all application tasks in the background>
+#                Copyright (C) <2024>  <execute_darker>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+
+# shellcheck disable=SC2034
+OUTFD=$2
+ZIPFILE=$3
+umask 022
+
+# shellcheck source=/dev/null
+. /data/adb/magisk/util_functions.sh
+if [ ! -f /data/adb/magisk/util_functions.sh ] || [ "$MAGISK_VER_CODE" -le 20400 ]; then
+    echo - Please install Magisk v20.4+!
+    exit 1
+fi
+install_module
