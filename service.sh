@@ -21,18 +21,31 @@
 
 
 # Global variables
-MODDIR="${0%/*}"
+    MODDIR="${0%/*}"
+#
 
-# Waiting for lmkd start
-until pidof lmkd; do
-	sleep 1
-done
+# lib
+    wait_until_ready() {
+        while true; do
+            sleep 10
+            [ "$(getprop sys.boot_completed)" = "1" ] && break
+        done
+        while true; do
+            sleep 10
+            [ -d "/sdcard/Android" ] && break
+        done
+        while true; do
+            sleep 10
+            [ "$(dumpsys window | grep mDreamingLockscreen=true)" = "" ] && break
+        done
+    }
+#
 
-stop lmkd
-start lmkd
+# Waiting for device start
+    wait_until_ready
+#
 
-nohup "$MODDIR"/bin/inject -p "$(pidof lmkd)" -so "$(realpath "$MODDIR"/bin/hookLib.so)" -symbols hook_lmkd
-
-for app in $(pm list packages | awk -F':' '{print $2}'); do
-    dumpsys deviceidle whitelist +"$app"
-done
+# After startup
+    sh "$MODDIR"/after.sh >"$MODDIR"/run.log 2>&1 &
+    logcat | nohup grep lowmemorykiller >"$MODDIR"/lmkd.log 2>&1 &
+#

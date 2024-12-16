@@ -89,8 +89,8 @@
 
 
 # Add list
+    echo "Adding app to doze whitelist..."
     for app in $(pm list packages | awk -F':' '{print $2}'); do
-        echo "Adding $app to doze whitelist..."
         dumpsys deviceidle whitelist +"$app"
         sleep 0.035
     done

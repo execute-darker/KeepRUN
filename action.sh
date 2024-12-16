@@ -20,10 +20,19 @@
 
 
 
+# tools.temporary whitelist cleanup
+
+echo "This button is used to temporarily clear the doze whitelist."
+echo "Start running this script in three seconds"
+echo ""
+sleep 3
 dumpsys deviceidle whitelist | while read -r item; do
     app=$(echo "$item" | cut -f2 -d ',')
     if [ -n "$app" ]; then
         echo "Removing $app in doze whitelist"
         dumpsys deviceidle whitelist -"$app"
+        sleep 0.035
     fi
 done
+echo "Removing done"
+exit 0
