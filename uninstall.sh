@@ -20,20 +20,34 @@
 
 
 
-# tools.temporary whitelist cleanup
+# lib
+    wait_until_login() {
+        while true; do
+            sleep 10
+            [ "$(getprop sys.boot_completed)" = "1" ] && break
+        done
+        while true; do
+            sleep 10
+            [ -d "/sdcard/Android" ] && break
+        done
+        while true; do
+            sleep 10
+            [ "$(dumpsys window | grep mDreamingLockscreen=true)" = "" ] && break
+        done
+    }
+#
 
-echo "- Temporarily clear the doze whitelist."
-echo "- Start running this in three seconds"
-echo ""
-sleep 3
-echo "- Removing..."
-dumpsys deviceidle whitelist | while read -r item; do
-    app=$(echo "$item" | cut -f2 -d ',')
-    if [ -n "$app" ]; then
-        temp="$(dumpsys deviceidle whitelist -"$app" | grep -v Unknown)"
-        [ "$temp" != "" ] && echo "- $temp"
-        sleep 0.025
-    fi
-done
-echo "- Remove done"
-exit 0
+# After startup
+(
+    # Waiting for device login
+        wait_until_login
+    #
+    
+    # Whitelist cleanup
+        dumpsys deviceidle whitelist | while read -r item; do
+            app=$(echo "$item" | cut -f2 -d ',')
+            [ -n "$app" ] && dumpsys deviceidle whitelist -"$app"
+        done
+    #
+) &
+#

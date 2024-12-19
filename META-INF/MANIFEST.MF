@@ -1,0 +1,58 @@
+Manifest-Version: 1.0
+Built-By: Signflinger
+Created-By: Android Gradle 8.0.2
+
+Name: LICENSE
+SHA1-Digest: Ok8uPpj72i1hymxEd5ABWh7Mb5k=
+
+Name: LICENSES/inject/LICENSE
+SHA1-Digest: E/oc4hJk6MKoxU0kFNc/rOYp+Mw=
+
+Name: LICENSES/lmkd/LICENSE
+SHA1-Digest: tGx0hWxb7CNCudMe+Sb196Dl3dE=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest: bJViYhjqk0NbefWzLsPcghWKaCA=
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest: Lzl1y1cC6TvXytLj6okU81/P8AA=
+
+Name: README.md
+SHA1-Digest: hTeXi3kb7+WAU8zXt0ZfKTWrf9w=
+
+Name: action.sh
+SHA1-Digest: 4A4w999gsIVe4SFlqzZKZIo9GsY=
+
+Name: after.sh
+SHA1-Digest: WwoehKbR3O09w1xZVlxBjFFUFAA=
+
+Name: bin/hookLib.so
+SHA1-Digest: u44WJOB3Hyj084VDu7RsXNdtsv0=
+
+Name: bin/inject
+SHA1-Digest: c/JZfFsJO/am27ho7ITVBWo4FSo=
+
+Name: bin/sdk33/lmkd
+SHA1-Digest: qu/mO6YtpfasARxyhb+/CW1ZIKM=
+
+Name: bin/sdk34/lmkd
+SHA1-Digest: Shu+YYcyucWPOykBM9CcpfOE95I=
+
+Name: customize.sh
+SHA1-Digest: Ttyr/ykYP2bpLy0HMFNm24Z9uJo=
+
+Name: module.prop
+SHA1-Digest: nISNlTFh4ia6mMh/30gJJYe2Sb0=
+
+Name: service.sh
+SHA1-Digest: doRgk0V6ZnORL0tKPtSpL5vCh3o=
+
+Name: system.prop
+SHA1-Digest: 5HJY9olzQNXO7qAVoagMksdFLNY=
+
+Name: system/bin/empty
+SHA1-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: uninstall.sh
+SHA1-Digest: pwZMdYf/87QTkLR8baat326e7Ik=
+

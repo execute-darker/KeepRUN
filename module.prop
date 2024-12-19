@@ -21,8 +21,9 @@
 
 id=KeepRUN
 name=Keep the app running!!!
-version=1.1(beta)
-versionCode=11
-author=execute-darker@github.com && shadow3aaa@github.com
-description=Keep the all application tasks in the background
+version=1.2(stable)
+versionCode=12
+author=execute-darker@github.com & shadow3aaa@github.com
+description=Keep the all application tasks in the background. repo: https://github.com/execute-darker/KeepRUN
+minMagisk=27008
 updateJson=https://github.com/execute-darker/KeepRUN/raw/main/KeepRUN_magisk/update.json

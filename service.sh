@@ -25,7 +25,7 @@
 #
 
 # lib
-    wait_until_ready() {
+    wait_until_login() {
         while true; do
             sleep 10
             [ "$(getprop sys.boot_completed)" = "1" ] && break
@@ -41,11 +41,10 @@
     }
 #
 
-# Waiting for device start
-    wait_until_ready
+# Waiting for device login
+    wait_until_login
 #
 
 # After startup
     sh "$MODDIR"/after.sh >"$MODDIR"/run.log 2>&1 &
-    logcat | nohup grep lowmemorykiller >"$MODDIR"/lmkd.log 2>&1 &
 #
